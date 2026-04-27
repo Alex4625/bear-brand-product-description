@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nestlé Bear Brand — Product Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#ffffff;
+  --cream:#faf8f5;
+  --snow:#f5f1ed;
+  --mist:#ede8e1;
+  --sky:#e0d5c7;
+  --blue:#1565C0;
+  --blue-dark:#0d3a7a;
+  --blue-navy:#051e3e;
+  --blue-accent:#0097A7;
+  --gold:#D4A574;
+  --gold-dark:#A67C52;
+  --gold-light:#E8DCC8;
+  --red:#D73A49;
+  --red-pale:#fdeaea;
+  --ink:#1a1410;
+  --ink-mid:#4a423a;
+  --ink-soft:#8a7f7a;
+  --border:#d4c9be;
+  --shadow:rgba(20,15,10,0.06);
+  --shadow-md:rgba(20,15,10,0.12);
+  --shadow-lg:rgba(20,15,10,0.18);
+  --shadow-xl:rgba(20,15,10,0.24);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;cursor:none}
+
+/* ─ CURSOR ─ */
+#cr,#crr{position:fixed;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#cr{width:8px;height:8px;background:#A67C52;transition:width .2s,height .2s,background .2s}
+#crr{width:30px;height:30px;border:1.5px solid rgba(166,124,82,.3);z-index:9998;transition:width .3s,height .3s}
+body.h #cr{width:16px;height:16px;background:#D4A574}
+body.h #crr{width:46px;height:46px}
+
+/* ─ NAV ─ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,165,116,.3);transition:box-shadow .3s cubic-bezier(0.4,0,0.2,1)}
+nav.scrolled{box-shadow:0 4px 20px rgba(20,15,10,.1)}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-brand-mark{width:38px;height:38px;background:linear-gradient(135deg,#A67C52,#D4A574);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(20,15,10,.15)}
+.nav-brand-mark svg{width:20px;height:20px}
+.nav-brand-text{font-family:"Cormorant Garamond",serif;font-size:1.15rem;font-weight:700;background:linear-gradient(135deg,#A67C52,#D4A574);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.3px;line-height:1}
+.nav-brand-sub{font-size:.6rem;font-weight:400;color:var(--ink-soft);letter-spacing:1px;text-transform:uppercase;display:block}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:500;color:var(--ink-mid);text-decoration:none;padding:6px 11px;border-radius:8px;letter-spacing:.2px;transition:background .18s,color .18s}
+.nav-links a:hover,.nav-links a.active{background:linear-gradient(135deg,#ede8e1,#e0d5c7);color:#A67C52}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.ham span{width:20px;height:1.5px;background:var(--ink);border-radius:2px}
+
+/* ─ HERO ─ */
+#home{min-height:100vh;display:grid;grid-template-columns:1fr 520px;align-items:center;padding:64px 3rem 0;position:relative;overflow:hidden;background:linear-gradient(135deg,#faf8f5 0%,#f5f1ed 30%,#ede8e1 60%,#e8dcc8 100%)}
+.hero-deco{position:absolute;border-radius:50%;border:1px solid rgba(212,165,116,.05)}
+.hero-deco.d1{width:500px;height:500px;top:5%;right:28%;animation:spin 60s linear infinite;background:radial-gradient(circle,rgba(212,165,116,.04),transparent)}
+.hero-deco.d2{width:750px;height:750px;top:-8%;right:18%;animation:spin 80s linear infinite reverse;background:radial-gradient(circle,rgba(166,124,82,.03),transparent)}
+.hero-deco.d3{width:1000px;height:1000px;top:-18%;right:8%;animation:spin 110s linear infinite;background:radial-gradient(circle,rgba(26,20,16,.02),transparent)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.hero-left{padding:4rem 0;position:relative;z-index:2;animation:fadeUp .9s ease both}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:1.6rem}
+.hero-eyebrow-line{width:32px;height:2px;background:linear-gradient(90deg,#A67C52,#D4A574);border-radius:2px}
+.hero-eyebrow-text{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:linear-gradient(135deg,#A67C52,#D4A574);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.hero-title{font-family:"Cormorant Garamond",serif;font-size:clamp(3.2rem,6vw,5.5rem);font-weight:700;line-height:.95;background:linear-gradient(135deg,#A67C52,#D4A574,#C49458);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1.4rem}
+.hero-title em{font-style:italic;background:linear-gradient(135deg,#D4A574,#C49458);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title .t-red{color:#D73A49;display:block;font-size:.42em;font-style:normal;font-weight:300;letter-spacing:5px;text-transform:uppercase;margin-bottom:.3rem;background:none;-webkit-text-fill-color:unset}
+
+.hero-desc{font-size:1.05rem;line-height:1.85;color:var(--ink-mid);max-width:460px;margin-bottom:2.4rem;font-weight:300}
+.hero-desc strong{font-weight:600;color:var(--blue-dark)}
+
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--white);border:1.5px solid rgba(212,165,116,.3);border-radius:30px;padding:7px 16px;font-size:.78rem;color:#4a423a;font-weight:500;box-shadow:0 2px 8px rgba(20,15,10,.06);transition:all .2s cubic-bezier(0.4,0,0.2,1)}
+.chip:hover{border-color:#A67C52;background:linear-gradient(135deg,#f5f1ed,#ede8e1)}
+.chip svg{width:14px;height:14px;flex-shrink:0}
+.chip.c-blue{background:linear-gradient(135deg,#ede8e1,#e0d5c7);border-color:#d4c9be;color:#0d3a7a}
+.chip.c-red{background:linear-gradient(135deg,#fdeaea,#fad5d5);border-color:#e8b5b8;color:#D73A49}
+.chip.c-gold{background:linear-gradient(135deg,#e8dcc8,#e0d1b5);border-color:#d4c9be;color:#A67C52}
+
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#0d3a7a,#1565c0);color:white;font-weight:600;font-size:.88rem;padding:13px 26px;border-radius:10px;text-decoration:none;letter-spacing:.2px;box-shadow:0 8px 24px rgba(13,58,122,.34);transition:transform .2s cubic-bezier(0.4,0,0.2,1),box-shadow .2s cubic-bezier(0.4,0,0.2,1),background .2s}
+.btn-p:hover{background:linear-gradient(135deg,#051e3e,#0d3a7a);transform:translateY(-3px);box-shadow:0 14px 36px rgba(13,58,122,.42)}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:#0d3a7a;font-weight:500;font-size:.88rem;padding:13px 26px;border-radius:10px;text-decoration:none;border:2px solid #0d3a7a;box-shadow:0 2px 10px rgba(20,15,10,.08);transition:border-color .2s cubic-bezier(0.4,0,0.2,1),background .2s cubic-bezier(0.4,0,0.2,1),box-shadow .2s cubic-bezier(0.4,0,0.2,1)}
+.btn-g:hover{border-color:#1565c0;background:linear-gradient(135deg,#f5f1ed,#ede8e1);box-shadow:0 8px 20px rgba(13,58,122,.15)}
+
+.hero-stats{display:flex;gap:1.5rem}
+.hstat{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1rem 1.4rem;box-shadow:0 2px 16px var(--shadow);text-align:center;min-width:90px}
+.hstat-num{font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:700;color:#A67C52;line-height:1}
+.hstat-lbl{font-size:.67rem;color:var(--ink-soft);margin-top:3px;letter-spacing:.4px}
+
+/* product images column */
+.hero-right{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.5rem;padding:5rem 0;position:relative;z-index:2;animation:fadeUp .9s .1s ease both}
+/* product images column */
+.hero-right{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:1.5rem;
+  padding:5rem 0;
+  position:relative;
+  z-index:2;
+  animation:fadeUp .9s .1s ease both
+}
+
+/* ─ HERO CANS (AESTHETIC 3-CAN LAYOUT) ─ */
+.hero-can-showcase{
+  position:relative;
+  width:100%;
+  height:430px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+}
+
+/* MAIN CAN (CENTER) */
+.hero-can-main{
+  position:absolute;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%) rotate(-2deg);
+  width:295px;
+  height:360px;
+  object-fit:contain;
+  z-index:3;
+  filter:drop-shadow(0 40px 70px rgba(13,52,102,0.28))
+         drop-shadow(0 10px 18px rgba(13,52,102,0.12));
+  animation:floatMain 4.2s ease-in-out infinite;
+  transition:transform .35s ease,filter .35s ease;
+}
+
+/* SECONDARY BASE STYLE */
+.hero-can-secondary{
+  position:absolute;
+  width:190px;
+  height:230px;
+  object-fit:contain;
+  filter:drop-shadow(0 22px 40px rgba(0,0,0,.18))
+         drop-shadow(0 6px 12px rgba(0,0,0,.10));
+  transition:transform .35s ease;
+}
+
+/* LEFT CAN (TEA) */
+.hero-can-showcase img.hero-can-secondary:nth-of-type(2){
+  left:50%;
+  bottom:35px;
+  transform:translateX(-235px) rotate(-14deg);
+  z-index:1;
+  opacity:.92;
+  animation:floatLeft 5s ease-in-out infinite;
+}
+
+/* RIGHT CAN (GOLD) */
+.hero-can-showcase img.hero-can-secondary:nth-of-type(3){
+  left:50%;
+  bottom:25px;
+  transform:translateX(140px) rotate(12deg);
+  z-index:2;
+  opacity:.96;
+  animation:floatRight 5.3s ease-in-out infinite;
+}
+
+/* hover effect (optional premium feel) */
+.hero-can-showcase:hover .hero-can-main{
+  filter:drop-shadow(0 50px 90px rgba(13,52,102,0.35))
+         drop-shadow(0 14px 24px rgba(13,52,102,0.18));
+}
+
+/* Animations */
+@keyframes floatMain{
+  0%,100%{transform:translateX(-50%) translateY(0) rotate(-2deg)}
+  50%{transform:translateX(-50%) translateY(-15px) rotate(2deg)}
+}
+
+@keyframes floatLeft{
+  0%,100%{transform:translateX(-235px) translateY(0) rotate(-14deg)}
+  50%{transform:translateX(-235px) translateY(-11px) rotate(-9deg)}
+}
+
+@keyframes floatRight{
+  0%,100%{transform:translateX(140px) translateY(0) rotate(12deg)}
+  50%{transform:translateX(140px) translateY(-13px) rotate(7deg)}
+}
+.hero-badge{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.2rem;display:flex;align-items:center;gap:.8rem;box-shadow:0 4px 20px var(--shadow);max-width:280px}
+.hero-badge-dot{width:10px;height:10px;border-radius:50%;background:var(--red);flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+.hero-badge-text{font-size:.78rem;font-weight:500;color:var(--ink-mid);line-height:1.4}
+.hero-badge-text strong{color:var(--blue-dark);display:block;font-size:.82rem}
+
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:3;animation:bob 2s infinite}
+.scroll-cue span{font-size:.6rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-soft)}
+.scroll-line{width:1px;height:36px;background:linear-gradient(180deg,var(--ink-soft),transparent)}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─ SECTION BASE ─ */
+.sec{padding:6rem 3rem}
+.si{max-width:1100px;margin:0 auto}
+.ey{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A67C52;margin-bottom:.6rem}
+.ey::before{content:"";display:inline-block;width:20px;height:1.5px;background:#A67C52;border-radius:2px}
+.st{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.05;color:#1a1410;margin-bottom:.8rem}
+.sd{font-size:1rem;color:var(--ink-mid);line-height:1.8;max-width:580px;margin-bottom:3.5rem;font-weight:300}
+
+/* ─ WHO ─ */
+.who-bg{background:linear-gradient(180deg,#faf8f5 0%,#f5f1ed 100%)}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.wc{background:var(--white);border-radius:18px;padding:2rem 1.6rem;border:1px solid rgba(212,165,116,.2);position:relative;overflow:hidden;transition:transform .25s cubic-bezier(0.4,0,0.2,1),box-shadow .25s cubic-bezier(0.4,0,0.2,1),background .25s}
+.wc::after{content:"";position:absolute;left:0;bottom:0;right:0;height:2.5px;background:linear-gradient(90deg,#A67C52,#D4A574);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(0.4,0,0.2,1)}
+.wc:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(20,15,10,.15),0 8px 15px rgba(20,15,10,.1);background:linear-gradient(135deg,#faf8f5 0%,#f5f1ed 100%)}
+.wc:hover::after{transform:scaleX(1)}
+.wi{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#e8dcc8,#f0e5d8);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem}
+.wi svg{width:22px;height:22px;stroke:#A67C52}
+.wc h4{font-family:"Cormorant Garamond",serif;font-size:1.1rem;font-weight:700;color:#1a1410;margin-bottom:.35rem}
+.wc p{font-size:.84rem;color:var(--ink-mid);line-height:1.7;font-weight:300}
+.wtag{display:inline-block;margin-top:.9rem;font-size:.67rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--blue);background:var(--mist);padding:3px 10px;border-radius:20px;border:1px solid var(--sky)}
+.wc-hero{grid-column:span 3;background:linear-gradient(135deg,#0d3a7a 0%,#1565c0 50%,#0097a7 100%);border-radius:20px;padding:2.5rem 3rem;display:flex;align-items:center;gap:3rem;border:none;box-shadow:0 20px 60px rgba(13,58,122,.3)}
+.wc-hero::after{display:none}
+.wc-hero:hover{transform:translateY(-4px);box-shadow:0 28px 75px rgba(13,58,122,.4)}
+.whero-stat{flex-shrink:0;text-align:center;border-right:1px solid rgba(255,255,255,.15);padding-right:2.5rem}
+.whero-n{font-family:"Cormorant Garamond",serif;font-size:4.5rem;font-weight:700;color:rgba(255,255,255,.95);line-height:1}
+.whero-sub{font-size:.68rem;color:rgba(255,255,255,.5);letter-spacing:1px;margin-top:3px}
+.wc-hero h4{font-family:"Cormorant Garamond",serif;font-size:1.4rem;font-weight:700;color:white;margin-bottom:.6rem}
+.wc-hero p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.8;max-width:600px;font-weight:300}
+
+/* ─ WHAT ─ */
+.what-bg{background:var(--white)}
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.spc{display:flex;flex-direction:column;gap:.7rem}
+.sr{display:flex;align-items:center;gap:.9rem;background:var(--snow);border:1px solid var(--border);border-radius:11px;padding:.85rem 1.1rem;transition:background .18s,border-color .18s}
+.sr:hover{background:linear-gradient(135deg,#ede8e1,#e0d5c7);border-color:#c9b8a8}
+.sri{width:36px;height:36px;border-radius:9px;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sri svg{width:16px;height:16px;stroke:var(--blue)}
+.srl{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft)}
+.srv{font-size:.9rem;font-weight:600;color:var(--ink);margin-top:1px}
+.price-box{background:linear-gradient(135deg,#e8dcc8,#e0d1b5);border:1px solid #d4c9be;border-radius:13px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:.9rem;margin-top:1rem}
+.price-num{font-family:"Cormorant Garamond",serif;font-size:1.7rem;font-weight:700;color:#A67C52;line-height:1}
+.price-sub{font-size:.75rem;color:#8a6f55;margin-top:2px;font-weight:300}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.1rem}
+.tag{background:linear-gradient(135deg,#ede8e1,#e0d5c7);border:1px solid rgba(212,165,116,.3);border-radius:20px;padding:4px 12px;font-size:.76rem;color:#4a423a;cursor:default;transition:background .18s,color .18s}
+.tag:hover{background:linear-gradient(135deg,#e0d5c7,#d4c9be);color:#A67C52}
+
+/* nutrition */
+.nc{background:linear-gradient(135deg,#f5f1ed,#ede8e1);border:1px solid rgba(212,165,116,.25);border-radius:18px;padding:2rem}
+.nc-title{font-family:"Cormorant Garamond",serif;font-size:1.1rem;font-weight:700;color:#1a1410;margin-bottom:1.4rem}
+.nr{margin-bottom:1.1rem}
+.nh{display:flex;justify-content:space-between;font-size:.82rem;font-weight:500;color:var(--ink-mid);margin-bottom:4px}
+.nt{height:7px;background:linear-gradient(90deg,#ede8e1,#d4c9be);border-radius:10px;overflow:hidden}
+.nf{height:100%;border-radius:10px;width:0;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.n1{background:linear-gradient(90deg,#A67C52,#D4A574)}
+.n2{background:linear-gradient(90deg,#0d3a7a,#1565c0)}
+.n3{background:linear-gradient(90deg,#D73A49,#ff6b7a)}
+.n4{background:linear-gradient(90deg,#6A1B9A,#AB47BC)}
+.n5{background:linear-gradient(90deg,#D73A49,#ff9ca3)}
+.bada{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.4rem}
+.bbd{border-radius:12px;padding:1rem;text-align:center;border:1px solid}
+.bbd-icon{font-size:1.3rem;margin-bottom:.25rem}
+/* using SVG instead of emoji in badges */
+.bbd-icon svg{width:22px;height:22px;display:block;margin:0 auto .3rem}
+.bbd-t{font-size:.8rem;font-weight:700;line-height:1.2}
+.bbd-s{font-size:.68rem;margin-top:2px;opacity:.7}
+.bb1{background:linear-gradient(135deg,#ede8e1,#e0d5c7);border-color:#d4c9be}.bb1 .bbd-t{color:#A67C52}
+.bb2{background:linear-gradient(135deg,#f0fdf4,#d1fae5);border-color:#a7f3d0}.bb2 .bbd-t{color:#15803d}
+.bb3{background:linear-gradient(135deg,#fff7ed,#fed7aa);border-color:#fdba74}.bb3 .bbd-t{color:#c2410c}
+.bb4{background:linear-gradient(135deg,#e8dcc8,#e0d1b5);border-color:#d4c9be}.bb4 .bbd-t{color:#A67C52}
+
+/* product image in WHAT section */
+.what-can-wrap{display:flex;justify-content:center;margin-bottom:1.5rem}
+.what-can-img{width:160px;height:190px;object-fit:contain;filter:drop-shadow(0 12px 24px rgba(13,61,122,.18))}
+
+/* ─ WHERE ─ */
+.where-bg{background:linear-gradient(145deg,#051e3e 0%,#0d3a7a 50%,#1565c0 100%);position:relative;overflow:hidden}
+.where-bg::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 25% 50%,rgba(255,255,255,.1) 0%,transparent 50%),radial-gradient(circle at 75% 30%,rgba(255,255,255,.07) 0%,transparent 50%);z-index:1}
+.where-bg .ey{color:#90caf9}.where-bg .ey::before{background:#90caf9}
+.where-bg .st{color:white}.where-bg .sd{color:rgba(255,255,255,.55)}
+.where-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:20px;overflow:hidden}
+.wrc{background:rgba(255,255,255,.04);padding:2rem 1.8rem;position:relative;transition:background .25s}
+.wrc:hover{background:rgba(255,255,255,.09)}
+.wrc-num{position:absolute;top:.8rem;right:1.2rem;font-family:"Cormorant Garamond",serif;font-size:3.5rem;font-weight:700;color:rgba(255,255,255,.05);line-height:1;user-select:none}
+.wrc-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.wrc-icon svg{width:22px;height:22px;stroke:rgba(255,255,255,.7)}
+.wrc h4{font-family:"Cormorant Garamond",serif;font-size:1.05rem;font-weight:700;color:white;margin-bottom:.35rem}
+.wrc p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.7;font-weight:300}
+.wrtag{display:inline-block;margin-top:.8rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#90caf9;background:rgba(144,202,249,.1);padding:3px 10px;border-radius:20px}
+
+/* ─ WHEN ─ */
+.when-bg{background:linear-gradient(180deg,#f5f1ed 0%,#ede8e1 100%)}
+.when-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:22px;top:20px;bottom:0;width:1.5px;background:linear-gradient(180deg,var(--blue),transparent);border-radius:2px}
+.tli{display:flex;gap:1.2rem;margin-bottom:2rem;align-items:flex-start}
+.tld{width:44px;height:44px;border-radius:50%;background:var(--white);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;box-shadow:0 2px 12px var(--shadow);transition:background .2s,border-color .2s}
+.tld svg{width:18px;height:18px;stroke:#A67C52}
+.tli:hover .tld{background:var(--mist);border-color:var(--blue)}
+.tlb{padding-top:.6rem}
+.tlb h4{font-family:"Cormorant Garamond",serif;font-size:1rem;font-weight:700;color:#1a1410;margin-bottom:.25rem}
+.tlb p{font-size:.83rem;color:var(--ink-mid);line-height:1.7;font-weight:300}
+.occ-card{background:var(--white);border-radius:20px;padding:2rem;border:1px solid rgba(212,165,116,.2);box-shadow:0 4px 24px rgba(20,15,10,.08)}
+.occ-card h3{font-family:"Cormorant Garamond",serif;font-size:1.15rem;font-weight:700;color:#1a1410;margin-bottom:1.2rem}
+.occ-list{display:flex;flex-direction:column;gap:.5rem}
+.occ-item{display:flex;align-items:center;gap:.75rem;padding:.65rem .9rem;border-radius:9px;background:linear-gradient(135deg,#f5f1ed,#ede8e1);font-size:.83rem;color:var(--ink-mid);border:1px solid transparent;transition:background .18s,border-color .18s}
+.occ-item:hover{background:linear-gradient(135deg,#ede8e1,#e0d5c7);border-color:#d4c9be;color:#1a1410}
+.occ-item svg{width:15px;height:15px;flex-shrink:0;stroke:#0d3a7a}
+
+/* ─ WHY ─ */
+.why-bg{background:var(--white)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-bottom:2.8rem}
+.wyc{background:var(--white);border-radius:18px;padding:1.8rem 1.6rem;border:1px solid rgba(212,165,116,.2);position:relative;overflow:hidden;transition:transform .25s cubic-bezier(0.4,0,0.2,1),box-shadow .25s cubic-bezier(0.4,0,0.2,1),background .25s}
+.wyc:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(20,15,10,.15),0 8px 15px rgba(20,15,10,.1);background:linear-gradient(135deg,#faf8f5 0%,#f5f1ed 100%)}
+.wyc-n{position:absolute;top:-8px;right:14px;font-family:"Cormorant Garamond",serif;font-size:5.5rem;font-weight:700;color:var(--mist);line-height:1;user-select:none}
+.wyc-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e8dcc8,#f0e5d8);display:flex;align-items:center;justify-content:center;margin-bottom:.9rem}
+.wyc-icon svg{width:22px;height:22px;stroke:#A67C52}
+.wyc h4{font-family:"Cormorant Garamond",serif;font-size:1.05rem;font-weight:700;color:#1a1410;margin-bottom:.4rem}
+.wyc p{font-size:.83rem;color:var(--ink-mid);line-height:1.7;font-weight:300;position:relative}
+.cmp-wrap{background:var(--snow);border-radius:20px;padding:2.2rem;border:1px solid var(--border)}
+.cmp-wrap h3{font-family:"Cormorant Garamond",serif;font-size:1.2rem;font-weight:700;color:#1a1410;margin-bottom:1.4rem}
+.cmp-table{width:100%;border-collapse:collapse}
+.cmp-table th{text-align:left;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);padding:.55rem 1rem;border-bottom:1.5px solid var(--border)}
+.cmp-table th.hl{color:#A67C52}
+.cmp-table td{padding:.78rem 1rem;font-size:.83rem;border-bottom:1px solid var(--border)}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table td:first-child{font-weight:500;color:var(--ink-mid)}
+.cmp-table tr:hover td{background:var(--mist)}
+.cy{color:#15803d;font-weight:700}.cn{color:var(--red);font-weight:700}.cm{color:#b45309;font-weight:700}
+
+/* ─ HOW ─ */
+.how-bg{background:linear-gradient(180deg,#f5f1ed 0%,#ede8e1 100%)}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-bottom:2rem}
+.hc{background:var(--white);border-radius:18px;padding:1.8rem 1.5rem;border:1px solid rgba(212,165,116,.2);position:relative;overflow:hidden;box-shadow:0 2px 14px rgba(20,15,10,.06);transition:transform .25s cubic-bezier(0.4,0,0.2,1),box-shadow .25s cubic-bezier(0.4,0,0.2,1)}
+.hc:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(20,15,10,.15),0 8px 16px rgba(20,15,10,.1)}
+.hc-n{position:absolute;top:-10px;right:12px;font-family:"Cormorant Garamond",serif;font-size:5rem;font-weight:700;color:var(--mist);line-height:1;user-select:none}
+.hc-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e8dcc8,#f0e5d8);display:flex;align-items:center;justify-content:center;margin-bottom:.8rem}
+.hc-icon svg{width:22px;height:22px;stroke:#A67C52}
+.hc h4{font-family:"Cormorant Garamond",serif;font-size:1rem;font-weight:700;color:#1a1410;margin-bottom:.35rem}
+.hc p{font-size:.82rem;color:var(--ink-mid);line-height:1.7;font-weight:300;position:relative}
+.tip{background:linear-gradient(135deg,#e8dcc8,#e0d1b5);border:1px solid #d4c9be;border-radius:14px;padding:1.3rem 1.6rem;display:flex;gap:.9rem;align-items:flex-start}
+.tip p{font-size:.88rem;line-height:1.8;color:#6b5d4f;font-weight:300}
+.tip p strong{font-weight:700;color:#4a423a}
+.tip-icon{width:38px;height:38px;border-radius:10px;background:rgba(166,124,82,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tip-icon svg{width:20px;height:20px;stroke:#A67C52}
+
+/* ─ FACTS ─ */
+.facts-bg{background:linear-gradient(180deg,#faf8f5 0%,#f5f1ed 100%)}
+.facts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.fc{background:var(--white);border-radius:18px;padding:1.8rem 1.5rem;border:1px solid rgba(212,165,116,.2);border-left:4px solid linear-gradient(180deg,#A67C52,#D4A574);box-shadow:0 2px 16px rgba(20,15,10,.08);transition:transform .25s cubic-bezier(0.4,0,0.2,1),box-shadow .25s cubic-bezier(0.4,0,0.2,1)}
+.fc:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(20,15,10,.15)}
+.fc-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#e8dcc8,#f0e5d8);display:flex;align-items:center;justify-content:center;margin-bottom:.8rem}
+.fc-icon svg{width:20px;height:20px;stroke:#A67C52}
+.fc h4{font-family:"Cormorant Garamond",serif;font-size:1rem;font-weight:700;color:#1a1410;margin-bottom:.3rem}
+.fc p{font-size:.83rem;color:var(--ink-mid);line-height:1.7;font-weight:300}
+
+/* ─ CTA ─ */
+.cta-sec{background:linear-gradient(135deg,#0d3a7a 0%,#1565c0 50%,#0097a7 100%);text-align:center;padding:6rem 3rem;position:relative;overflow:hidden}
+.cta-sec::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(255,255,255,.12) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(255,255,255,.09) 0%,transparent 50%);z-index:1}
+.cta-sec h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:white;margin-bottom:1rem;position:relative;z-index:2}
+.cta-sec p{color:rgba(255,255,255,.85);font-size:1rem;max-width:480px;margin:0 auto 2.5rem;line-height:1.8;font-weight:300;position:relative;z-index:2}
+.cta-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.cta-w{display:inline-flex;align-items:center;gap:8px;background:white;color:#0d3a7a;font-weight:700;font-size:.88rem;padding:13px 26px;border-radius:10px;text-decoration:none;box-shadow:0 8px 28px rgba(20,15,10,.18);transition:transform .2s cubic-bezier(0.4,0,0.2,1),box-shadow .2s cubic-bezier(0.4,0,0.2,1)}
+.cta-w:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(20,15,10,.24)}
+.cta-o{display:inline-flex;align-items:center;gap:8px;background:transparent;color:white;font-weight:500;font-size:.88rem;padding:13px 26px;border-radius:10px;text-decoration:none;border:2px solid white;transition:border-color .2s cubic-bezier(0.4,0,0.2,1),background .2s cubic-bezier(0.4,0,0.2,1)}
+.cta-o:hover{border-color:white;background:rgba(255,255,255,.12)}
+
+/* can-pair in CTA */
+.cta-cans{display:flex;justify-content:center;gap:2rem;margin-bottom:2.5rem;position:relative;z-index:2}
+.cta-cans img{height:120px;object-fit:contain;filter:drop-shadow(0 12px 24px rgba(0,0,0,.3)) drop-shadow(0 4px 8px rgba(0,0,0,.15))}
+
+/* ─ REFS ─ */
+.refs-sec{background:linear-gradient(180deg,#f5f1ed 0%,#ede8e1 100%);padding:4rem 3rem}
+.refs-inner{max-width:1100px;margin:0 auto}
+.refs-inner h3{font-family:"Cormorant Garamond",serif;font-size:1.3rem;font-weight:700;color:#1a1410;margin-bottom:1.2rem}
+.ref-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.ref-list li{background:var(--white);border:1px solid var(--border);border-radius:9px;padding:.65rem 1.1rem;font-size:.83rem;color:var(--ink-mid)}
+.ref-list a{color:#0d3a7a;text-decoration:none}
+.ref-list a:hover{text-decoration:underline}
+
+/* ─ FOOTER ─ */
+footer{background:linear-gradient(180deg,#051e3e 0%,#0d3a7a 100%);color:rgba(255,255,255,.5);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem}
+.footer-logo{font-family:"Cormorant Garamond",serif;font-size:1.05rem;font-weight:700;color:white;display:flex;align-items:center;gap:10px;letter-spacing:-.3px}
+footer p{font-size:.75rem;line-height:1.6}
+.footer-divider{width:1px;height:16px;background:rgba(255,255,255,.15)}
+
+/* ─ REVEAL ─ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}
+
+/* ─ MOBILE ─ */
+@media(max-width:960px){
+  nav{padding:0 1.5rem}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:white;padding:1rem 1.5rem;border-bottom:1px solid var(--border);gap:2px;z-index:999}
+  .nav-links.open{display:flex}
+  .ham{display:flex}
+  #home{grid-template-columns:1fr;padding:64px 1.5rem 3rem}
+  .hero-right{display:none}
+  .sec{padding:4rem 1.5rem}
+  .who-grid,.why-grid,.how-grid,.facts-grid{grid-template-columns:1fr 1fr}
+  .wc-hero{grid-column:span 2;flex-direction:column;gap:1.5rem}
+  .where-grid{grid-template-columns:1fr 1fr}
+  .what-grid,.when-layout{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .who-grid,.why-grid,.how-grid,.facts-grid{grid-template-columns:1fr}
+  .wc-hero{grid-column:span 1}
+  .where-grid{grid-template-columns:1fr}
+}
+
+/* ─ DRAGON BG DECO ─ */
+.hero-dragon{position:absolute;right:-60px;bottom:-40px;width:480px;height:480px;object-fit:contain;opacity:.09;pointer-events:none;z-index:1;animation:dragonFloat 8s ease-in-out infinite;filter:brightness(0) invert(0) sepia(1) hue-rotate(200deg)}
+@keyframes dragonFloat{0%,100%{transform:translateY(0) rotate(-3deg) scale(1)}50%{transform:translateY(-18px) rotate(3deg) scale(1.03)}}
+
+/* ─ PRODUCT GALLERY ─ */
+.gallery-sec{padding:6rem 3rem;background:linear-gradient(180deg,#faf8f5 0%,#f5f1ed 100%)}
+.gallery-inner{max-width:1100px;margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.gallery-card{background:var(--white);border:1px solid rgba(212,165,116,.2);border-radius:22px;padding:2rem 1.5rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:transform .3s cubic-bezier(0.4,0,0.2,1),box-shadow .3s cubic-bezier(0.4,0,0.2,1)}
+.gallery-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,165,116,.04),transparent 60%);pointer-events:none}
+.gallery-card:hover{transform:translateY(-10px);box-shadow:0 24px 60px rgba(20,15,10,.16),0 8px 20px rgba(20,15,10,.1)}
+.gallery-card:hover .gallery-can{transform:scale(1.08) translateY(-8px)}
+.gallery-can{width:180px;height:210px;object-fit:contain;transition:transform .4s cubic-bezier(0.4,0,0.2,1);filter:drop-shadow(0 16px 32px rgba(13,52,102,.2)) drop-shadow(0 4px 8px rgba(13,52,102,.1));margin:0 auto 1.2rem;display:block}
+.gallery-card-badge{position:absolute;top:16px;right:16px;background:linear-gradient(135deg,#A67C52,#D4A574);color:white;font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.gallery-card-name{font-family:"Cormorant Garamond",serif;font-size:1.35rem;font-weight:700;color:#1a1410;margin-bottom:.3rem}
+.gallery-card-sub{font-size:.78rem;color:var(--ink-soft);margin-bottom:1rem;font-weight:300}
+.gallery-card-tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:1.1rem}
+.gallery-card-tag{background:linear-gradient(135deg,#ede8e1,#e0d5c7);border:1px solid rgba(212,165,116,.3);border-radius:20px;padding:3px 10px;font-size:.72rem;color:#4a423a}
+.gallery-card-vol{font-family:"Cormorant Garamond",serif;font-size:1rem;font-weight:600;color:#A67C52;border-top:1px solid rgba(212,165,116,.2);padding-top:.8rem;margin-top:.3rem}
+@media(max-width:960px){.gallery-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.gallery-grid{grid-template-columns:1fr}}
+
+/* ─ CTA UPDATE ─ */
+.cta-can-row{display:flex;align-items:flex-end;justify-content:center;gap:-20px;margin-bottom:2rem}
+.cta-can-img{height:220px;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));transition:transform .3s ease}
+.cta-can-img:hover{transform:scale(1.07) translateY(-8px)}
+.cta-can-img.main{height:260px;z-index:2;position:relative;margin:0 -15px}
+.cta-dragon-bg{position:absolute;right:0;bottom:0;width:500px;height:500px;object-fit:contain;opacity:.08;pointer-events:none;filter:brightness(10);mix-blend-mode:overlay}
+</style>
+</head>
+<body>
+
+<div id="cr"></div>
+<div id="crr"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-brand">
+    <div class="nav-brand-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2C9 2 6 4 6 7c0 2 1 3.5 3 4.5V13l-2 2v2h10v-2l-2-2v-1.5c2-1 3-2.5 3-4.5 0-3-3-5-6-5z"/><path d="M9 17v4h6v-4"/></svg>
+    </div>
+    <div class="nav-brand-text">
+      Bear Brand
+      <span class="nav-brand-sub">Nestlé Indonesia</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#who">Who</a></li>
+    <li><a href="#what">What</a></li>
+    <li><a href="#where">Where</a></li>
+    <li><a href="#when">When</a></li>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#how">How</a></li>
+    <li><a href="#funfacts">Facts</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+  </ul>
+  <div class="ham" id="ham"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-deco d1"></div>
+  <div class="hero-deco d2"></div>
+  <div class="hero-deco d3"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Nestlé Indonesia &mdash; Product Presentation</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="t-red">Trusted Sterilized Milk</span>
+      Bear<br>
+      <em>Brand</em>
+    </h1>
+    <p class="hero-desc">
+      Indonesia's most trusted canned milk — <strong>ultra-sterilized for safety</strong>, rich in protein, and built for the real lifestyle of students and youth across the archipelago.
+    </p>
+    <div class="hero-chips">
+      <div class="chip c-blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        UHT Sterilized
+      </div>
+      <div class="chip c-blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        High Protein
+      </div>
+      <div class="chip c-red">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        12-Month Shelf Life
+      </div>
+      <div class="chip c-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        BPOM &amp; Halal MUI
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#who" class="btn-p">Explore Presentation
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+      <a href="#why" class="btn-g">Why Bear Brand
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num">50+</div><div class="hstat-lbl">Years in Market</div></div>
+      <div class="hstat"><div class="hstat-num">Rp 3K</div><div class="hstat-lbl">Starting Price</div></div>
+      <div class="hstat"><div class="hstat-num">#1</div><div class="hstat-lbl">Canned Milk</div></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-can-showcase">
+      <img class="hero-can-main" src="Bearbrandputih.png" alt= "Brand Sterilized Milk White Can">
+      <img class="hero-can-secondary" src="bearbrandtea-removebg-preview.png" alt="Bear Brand Gold Tea">
+      <img class="hero-can-secondary" src="bearbrandgold-removebg-preview.png" alt="Bear Brand Gold Can">
+
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <div class="hero-badge-text">
+        <strong>Available Nationwide</strong>
+        Indomaret, Alfamart &amp; every warung across Indonesia
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- WHAT -->
+<section class="sec what-bg" id="what">
+  <div class="si">
+    <div class="rv">
+      <div class="ey">01 &mdash; What</div>
+      <h2 class="st">What Is Bear Brand Milk?</h2>
+      <p class="sd">
+        Bear Brand is a ready-to-drink sterilized milk beverage from Nestlé, available in three variants: Bear Brand Original, Bear Brand Gold White Malt, and Bear Brand Gold White Tea. All variants are preservative-free, long-lasting, and practical for everyday consumption.
+      </p>
+    </div>
+
+    <div class="what-grid">
+      <div class="rv">
+        <div class="what-can-wrap">
+          <img class="what-can-img" src="bearbrandgold-removebg-preview.png" alt="Bear Brand Milk Variants">
+        </div>
+
+        <div class="spc">
+          <div class="sr">
+            <div class="sri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 3h18l-2 13H5L3 3z"/>
+                <path d="M7 3V2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v1"/>
+              </svg>
+            </div>
+            <div>
+              <div class="srl">Main Product</div>
+              <div class="srv">Ready-to-drink sterilized milk beverage by Nestlé</div>
+            </div>
+          </div>
+
+          <div class="sr">
+            <div class="sri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <path d="M3 9h18M9 21V9"/>
+              </svg>
+            </div>
+            <div>
+              <div class="srl">Variants</div>
+              <div class="srv">Original · Gold White Malt · Gold White Tea</div>
+            </div>
+          </div>
+
+          <div class="sr">
+            <div class="sri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="srl">Sterilization</div>
+              <div class="srv">Sterilized milk · Preservative-free · Safe for daily use</div>
+            </div>
+          </div>
+
+          <div class="sr">
+            <div class="sri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div>
+              <div class="srl">Packaging Size</div>
+              <div class="srv">189 ml (Original) · 140 ml (Gold variants)</div>
+            </div>
+          </div>
+
+          <div class="sr">
+            <div class="sri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <div class="srl">Taste Profile</div>
+              <div class="srv">Mild milk · Creamy malt · Gentle tea-milk flavor</div>
+            </div>
+          </div>
+
+          <div class="sr">
+            <div class="sri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div>
+              <div class="srl">Key Benefits</div>
+              <div class="srv">Protein · Calcium · Essential vitamins for daily nutrition</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#b07d2a" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+          <div>
+            <div class="price-num">Rp 5.000 &ndash; Rp 10.000</div>
+            <div class="price-sub">
+              Typical price range in Indonesia per can (140ml&ndash;189ml)
+            </div>
+          </div>
+        </div>
+
+        <div class="tags" style="margin-top:1rem">
+          <div style="font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink-soft);width:100%;margin-bottom:2px">
+            Main Ingredients &amp; Additions
+          </div>
+          <span class="tag">Sterilized Cow's Milk</span>
+          <span class="tag">Protein</span>
+          <span class="tag">Calcium</span>
+          <span class="tag">No Preservatives</span>
+          <span class="tag">Original: No Added Sugar</span>
+          <span class="tag">Gold Malt: Malt Extract</span>
+          <span class="tag">Gold Malt: Vitamin B1</span>
+          <span class="tag">Gold Malt: Vitamin B2</span>
+          <span class="tag">Gold Malt: Vitamin B6</span>
+          <span class="tag">Gold Malt: Vitamin B12</span>
+          <span class="tag">Gold Tea: White Tea Extract</span>
+          <span class="tag">Gold Tea: Vitamin A</span>
+          <span class="tag">Gold Tea: Vitamin C</span>
+          <span class="tag">Gold Tea: Vitamin E</span>
+        </div>
+      </div>
+
+      <div class="rv rd2">
+        <div class="nc">
+          <div class="nc-title">Key Nutrition Highlights</div>
+
+          <div class="nr">
+            <div class="nh"><span>Protein</span><span>Supports daily body needs</span></div>
+            <div class="nt"><div class="nf n1" data-w="70"></div></div>
+          </div>
+
+          <div class="nr">
+            <div class="nh"><span>Calcium</span><span>Helps maintain bones &amp; teeth</span></div>
+            <div class="nt"><div class="nf n2" data-w="80"></div></div>
+          </div>
+
+          <div class="nr">
+            <div class="nh"><span>Vitamins</span><span>A, C, E or B-Complex (variant-based)</span></div>
+            <div class="nt"><div class="nf n3" data-w="65"></div></div>
+          </div>
+
+          <div class="nr">
+            <div class="nh"><span>Preservative-Free</span><span>Safe &amp; long-lasting sterilized milk</span></div>
+            <div class="nt"><div class="nf n4" data-w="85"></div></div>
+          </div>
+
+          <div class="nr">
+            <div class="nh"><span>Convenience</span><span>Ready-to-drink anytime</span></div>
+            <div class="nt"><div class="nf n5" data-w="75"></div></div>
+          </div>
+        </div>
+
+        <div class="bada">
+          <div class="bbd bb1">
+            <div class="bbd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1565C0" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="bbd-t">Sterilized Milk</div>
+            <div class="bbd-s">Safe &amp; bacteria-free</div>
+          </div>
+
+          <div class="bbd bb2">
+            <div class="bbd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="1.5">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <div class="bbd-t">Daily Nutrition</div>
+            <div class="bbd-s">Protein &amp; calcium inside</div>
+          </div>
+
+          <div class="bbd bb3">
+            <div class="bbd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div class="bbd-t">Long-Lasting</div>
+            <div class="bbd-s">Easy to store at home</div>
+          </div>
+
+          <div class="bbd bb4">
+            <div class="bbd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#b07d2a" stroke-width="1.5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <div class="bbd-t">Variant Options</div>
+            <div class="bbd-s">Original, Malt, or White Tea</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT GALLERY -->
+<section class="gallery-sec sec" id="gallery">
+  <div class="gallery-inner">
+    <div class="rv">
+      <div class="ey">02 &mdash; Products</div>
+      <h2 class="st">Our Product Line</h2>
+      <p class="sd">
+        From the classic white can to the premium Gold variants — Bear Brand offers a product for every taste and lifestyle.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Bear Brand Original -->
+      <div class="gallery-card rv rd1">
+        <div class="gallery-card-badge">Classic</div>
+        <img class="gallery-can" src="Bearbrandputih.png" alt="Bear Brand Original Sterilized Milk">
+        <div class="gallery-card-name">Bear Brand Original</div>
+        <div class="gallery-card-sub">Ready-to-Drink Sterilized Milk</div>
+        <div class="gallery-card-tags">
+          <span class="gallery-card-tag">Full Cream</span>
+          <span class="gallery-card-tag">Sterilized</span>
+          <span class="gallery-card-tag">Halal Certified</span>
+        </div>
+        <div class="gallery-card-vol">189 ml · Rp 3,000 – 5,000</div>
+      </div>
+
+      <!-- Bear Brand Gold Malt -->
+      <div class="gallery-card rv rd2">
+        <div class="gallery-card-badge">Premium</div>
+        <img class="gallery-can" src="bearbrandgold-removebg-preview.png" alt="Bear Brand Gold White Malt">
+        <div class="gallery-card-name">Gold — White Malt</div>
+        <div class="gallery-card-sub">Sterilized Milk with Malt Extract</div>
+        <div class="gallery-card-tags">
+          <span class="gallery-card-tag">Malt Extract</span>
+          <span class="gallery-card-tag">140 ml</span>
+          <span class="gallery-card-tag">Smooth &amp; Creamy</span>
+        </div>
+        <div class="gallery-card-vol">140 ml · Rp 6,000 – 8,000</div>
+      </div>
+
+      <!-- Bear Brand Gold White Tea -->
+      <div class="gallery-card rv rd3">
+        <div class="gallery-card-badge">New</div>
+        <img class="gallery-can" src="bearbrandtea-removebg-preview.png" alt="Bear Brand Gold White Tea">
+        <div class="gallery-card-name">Gold — White Tea</div>
+        <div class="gallery-card-sub">Sterilized Milk with White Tea Extract</div>
+        <div class="gallery-card-tags">
+          <span class="gallery-card-tag">White Tea</span>
+          <span class="gallery-card-tag">140 ml</span>
+          <span class="gallery-card-tag">Antioxidants</span>
+        </div>
+        <div class="gallery-card-vol">140 ml · Rp 6,000 – 8,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="sec who-bg" id="who">
+  <div class="si">
+    <div class="rv">
+      <div class="ey">03 &mdash; Who</div>
+      <h2 class="st">Who Is Bear Brand For?</h2>
+      <p class="sd">
+        Bear Brand is primarily targeted at teenagers to adults, especially busy college students and working professionals who need a practical and nutritious daily drink.
+      </p>
+    </div>
+
+    <div class="who-grid rv rd1">
+      <div class="wc">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h4>College Students</h4>
+        <p>
+          A practical daily drink for busy students who need quick nutrition without preparation. Easy to consume directly from the can anytime.
+        </p>
+        <span class="wtag">Primary Target</span>
+      </div>
+
+      <div class="wc">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h4>Working Professionals</h4>
+        <p>
+          Suitable for office workers who need a convenient and nutritious drink during a busy schedule. No refrigeration needed before opening.
+        </p>
+        <span class="wtag">Professionals</span>
+      </div>
+
+      <div class="wc">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+        <h4>Health-Conscious Individuals</h4>
+        <p>
+          Ideal for people who want a sterilized and preservative-free milk beverage as part of their daily nutrition routine.
+        </p>
+        <span class="wtag">Healthy Lifestyle</span>
+      </div>
+
+      <div class="wc">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h4>Families</h4>
+        <p>
+          Families often stock Bear Brand at home as a reliable milk beverage that can be enjoyed by different age groups.
+        </p>
+        <span class="wtag">Home Supply</span>
+      </div>
+
+      <div class="wc">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h4>Active Lifestyle Consumers</h4>
+        <p>
+          Perfect for people with active routines because it is ready-to-drink, sterilized, and can be consumed instantly without extra steps.
+        </p>
+        <span class="wtag">On-the-Go</span>
+      </div>
+
+      <div class="wc">
+        <div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4>Travelers</h4>
+        <p>
+          Convenient for travelers who need ready-to-drink nutrition while commuting, traveling long distances, or staying active outside home.
+        </p>
+        <span class="wtag">Travel Friendly</span>
+      </div>
+
+      <div class="wc wc-hero">
+        <div class="whero-stat">
+          <div class="whero-n">Note</div>
+          <div class="whero-sub">Important</div>
+        </div>
+        <div>
+          <h4>Who Should Be Careful Consuming Bear Brand</h4>
+          <p>
+            Bear Brand may not be suitable for individuals with lactose intolerance because it contains pure cow’s milk. People with diabetes should also check the nutrition label carefully due to its sugar content before consuming it regularly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHERE -->
+<section class="sec where-bg" id="where">
+  <div class="si" style="position:relative;z-index:2">
+    <div class="rv">
+      <div class="ey">04 &mdash; Where</div>
+      <h2 class="st">Where Can You Enjoy It?</h2>
+      <p class="sd">
+        Bear Brand can be enjoyed both indoors and outdoors—at home, school, campus, office, while traveling, during activities, or after exercise. Store at room temperature before opening, and refrigerate for a more refreshing taste.
+      </p>
+    </div>
+
+    <div class="where-grid rv rd1">
+      <div class="wrc">
+        <div class="wrc-num">01</div>
+        <div class="wrc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h4>Home</h4>
+        <p>Perfect to keep at home for daily nutrition. Store at room temperature and chill it in the fridge for a fresher taste.</p>
+        <span class="wrtag">Everyday Use</span>
+      </div>
+
+      <div class="wrc">
+        <div class="wrc-num">02</div>
+        <div class="wrc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <h4>School &amp; Campus</h4>
+        <p>Easy to enjoy between classes. A practical ready-to-drink option for students who need quick nutrition.</p>
+        <span class="wrtag">Student Friendly</span>
+      </div>
+
+      <div class="wrc">
+        <div class="wrc-num">03</div>
+        <div class="wrc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          </svg>
+        </div>
+        <h4>Office</h4>
+        <p>A convenient drink for working professionals. Great for breaks, busy workdays, and quick nutrition during routines.</p>
+        <span class="wrtag">Work Ready</span>
+      </div>
+
+      <div class="wrc">
+        <div class="wrc-num">04</div>
+        <div class="wrc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-2 14H7a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2z"/>
+          </svg>
+        </div>
+        <h4>Traveling</h4>
+        <p>Ideal for traveling or commuting. Easy to carry and ready-to-drink anytime while on the go.</p>
+        <span class="wrtag">Travel Friendly</span>
+      </div>
+
+      <div class="wrc">
+        <div class="wrc-num">05</div>
+        <div class="wrc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 8C8 10 5.9 16.17 3.82 20.25M9.6 4.87L8.4 3.07M16.83 7.17L18.62 5.38M11.12 3.75l-.56-2.09M15.44 5.56l1.33-1.67M9.32 4.5L7.28 3.21"/>
+            <path d="M14 17l-5 5M21 21H11v-5l5-5 5 5z"/>
+          </svg>
+        </div>
+        <h4>Activities &amp; Outdoor</h4>
+        <p>Enjoy it during activities or outdoor routines. A practical option for quick nutrition anytime you need energy.</p>
+        <span class="wrtag">Active Lifestyle</span>
+      </div>
+
+      <div class="wrc">
+        <div class="wrc-num">06</div>
+        <div class="wrc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <h4>Where To Buy</h4>
+        <p>Available in supermarkets, minimarkets (Indomaret/Alfamart), and also in online marketplaces for easy access.</p>
+        <span class="wrtag">Easy to Find</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHEN --> 
+<section class="sec when-bg" id="when">
+  <div class="si">
+    <div class="rv">
+      <div class="ey">05 &mdash; When</div>
+      <h2 class="st">When Is the Best Time?</h2>
+      <p class="sd">
+        Bear Brand is a ready-to-drink sterilized milk made from 100% pure cow’s milk, designed to provide practical daily nutrition. Rich in protein and essential minerals, it supports energy and overall wellness without feeling heavy.
+      </p>
+    </div>
+
+    <div class="when-layout">
+      <div class="tl rv">
+        <div class="tli">
+          <div class="tld">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+            </svg>
+          </div>
+          <div class="tlb">
+            <h4>Morning Routine</h4>
+            <p>Enjoy Bear Brand in the morning as a light breakfast option to start the day with simple, practical nutrition.</p>
+          </div>
+        </div>
+
+        <div class="tli">
+          <div class="tld">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div class="tlb">
+            <h4>Busy Days On-the-Go</h4>
+            <p>Its hygienic canned packaging makes it easy to consume anytime during a packed schedule without preparation.</p>
+          </div>
+        </div>
+
+        <div class="tli">
+          <div class="tld">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="tlb">
+            <h4>After Exercise</h4>
+            <p>Drink it after workouts or physical activity to support recovery, thanks to its protein and essential minerals.</p>
+          </div>
+        </div>
+
+        <div class="tli">
+          <div class="tld">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div class="tlb">
+            <h4>Any Season</h4>
+            <p>Suitable for any weather and lifestyle. Bear Brand provides convenient nourishment all year round.</p>
+          </div>
+        </div>
+
+        <div class="tli">
+          <div class="tld">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </div>
+          <div class="tlb">
+            <h4>Daily Wellness Support</h4>
+            <p>A practical choice for maintaining daily energy and wellness without feeling heavy, making it suitable for regular consumption.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv rd2">
+        <div class="occ-card">
+          <h3>Perfect Occasions</h3>
+          <div class="occ-list">
+            <div class="occ-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              </svg>
+              <span>Morning nutrition for a simple and light breakfast</span>
+            </div>
+
+            <div class="occ-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="9 11 12 14 22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+              <span>During busy days when you need practical ready-to-drink nutrition</span>
+            </div>
+
+            <div class="occ-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+              <span>While studying, working, or needing energy without heavy meals</span>
+            </div>
+
+            <div class="occ-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="8" y1="6" x2="21" y2="6"/>
+                <line x1="8" y1="12" x2="21" y2="12"/>
+                <line x1="8" y1="18" x2="21" y2="18"/>
+                <line x1="3" y1="6" x2="3.01" y2="6"/>
+                <line x1="3" y1="12" x2="3.01" y2="12"/>
+                <line x1="3" y1="18" x2="3.01" y2="18"/>
+              </svg>
+              <span>After exercise or physical activities for recovery support</span>
+            </div>
+
+            <div class="occ-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/>
+                <rect x="9" y="11" width="14" height="10" rx="1"/>
+                <path d="M13 16h.01M17 16h.01"/>
+              </svg>
+              <span>When traveling or commuting for convenient on-the-go nourishment</span>
+            </div>
+
+            <div class="occ-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>Any season throughout the year as part of a daily routine</span>
+            </div>
+
+            <div class="occ-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <span>Shared at home with family as a reliable milk beverage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY --> 
+<section class="sec why-bg" id="why">
+  <div class="si">
+    <div class="rv">
+      <div class="ey">06 &mdash; Why</div>
+      <h2 class="st">Why Choose Bear Brand?</h2>
+      <p class="sd">
+        Bear Brand provides practical daily nutrition through a sterilized (UHT) process that makes it safe, long-lasting, and preservative-free. With protein, calcium, and essential vitamins clearly stated on the label, it is supported by Nestlé’s trusted reputation and wide consumer acceptance.
+      </p>
+    </div>
+
+    <div class="why-grid rv rd1">
+      <div class="wyc">
+        <div class="wyc-n">1</div>
+        <div class="wyc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h4>UHT Sterilized &amp; Preservative-Free</h4>
+        <p>
+          The high-temperature sterilization process makes Bear Brand safe, hygienic, and long-lasting without requiring preservatives.
+        </p>
+      </div>
+
+      <div class="wyc">
+        <div class="wyc-n">2</div>
+        <div class="wyc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h4>Real Nutritional Support</h4>
+        <p>
+          Provides protein, calcium, and essential vitamins with clear nutrition information stated on the label for daily wellness support.
+        </p>
+      </div>
+
+      <div class="wyc">
+        <div class="wyc-n">3</div>
+        <div class="wyc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <h4>Long-Lasting &amp; Practical</h4>
+        <p>
+          Its sealed packaging helps maintain freshness for longer storage, making it reliable for daily routines and busy schedules.
+        </p>
+      </div>
+
+      <div class="wyc">
+        <div class="wyc-n">4</div>
+        <div class="wyc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <h4>Easy Anytime Consumption</h4>
+        <p>
+          Fits a busy lifestyle because it can be consumed anytime without preparation, whether chilled for freshness or warmed for comfort.
+        </p>
+      </div>
+
+      <div class="wyc">
+        <div class="wyc-n">5</div>
+        <div class="wyc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h4>Premium &amp; Distinctive Taste</h4>
+        <p>
+          Offers a more distinctive and premium milk taste compared to many other UHT milk products, making it enjoyable as a daily drink.
+        </p>
+      </div>
+
+      <div class="wyc">
+        <div class="wyc-n">6</div>
+        <div class="wyc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="12" y1="1" x2="12" y2="23"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <h4>Portable &amp; Hygienic Packaging</h4>
+        <p>
+          Small can sizes (140 ml and 189 ml) make it easy to carry anywhere, while the sealed metal can keeps it airtight and hygienic.
+        </p>
+      </div>
+    </div>
+
+    <div class="cmp-wrap rv rd2">
+      <h3>Bear Brand vs. Other UHT Milk Products</h3>
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="hl">Bear Brand</th>
+            <th>Regular UHT Milk</th>
+            <th>Flavored Milk Drinks</th>
+            <th>Sweetened Condensed Milk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Taste Profile</td>
+            <td class="cy">Premium &amp; distinctive</td>
+            <td class="cm">Standard milk taste</td>
+            <td class="cm">Often sweet/flavored</td>
+            <td class="cn">Very sweet</td>
+          </tr>
+          <tr>
+            <td>Packaging</td>
+            <td class="cy">Sealed metal can</td>
+            <td class="cm">Carton / plastic bottle</td>
+            <td class="cm">Bottle / carton</td>
+            <td class="cm">Can / pouch</td>
+          </tr>
+          <tr>
+            <td>Portability</td>
+            <td class="cy">Very portable (140ml &amp; 189ml)</td>
+            <td class="cm">Medium</td>
+            <td class="cm">Medium</td>
+            <td class="cy">Portable</td>
+          </tr>
+          <tr>
+            <td>Product Focus</td>
+            <td class="cy">Nutrition &amp; convenience</td>
+            <td class="cm">Daily milk consumption</td>
+            <td class="cm">Taste &amp; refreshment</td>
+            <td class="cn">Sweetener ingredient</td>
+          </tr>
+          <tr>
+            <td>Claims &amp; Messaging</td>
+            <td class="cy">Realistic &amp; label-based</td>
+            <td class="cm">Varies by brand</td>
+            <td class="cm">Often marketing-focused</td>
+            <td class="cn">High sugar content</td>
+          </tr>
+          <tr>
+            <td>Brand Reputation</td>
+            <td class="cy">Strong Nestlé credibility</td>
+            <td class="cm">Depends on brand</td>
+            <td class="cm">Depends on brand</td>
+            <td class="cm">Common household product</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="sec how-bg" id="how">
+  <div class="si">
+    <div class="rv">
+      <div class="ey">07 &mdash; How</div>
+      <h2 class="st">How to Use Bear Brand</h2>
+      <p class="sd">
+        Bear Brand is a ready-to-drink sterilized milk. To get the best taste and maintain its nutrition, follow the correct serving and storage guidelines.
+      </p>
+    </div>
+
+    <div class="how-grid rv rd1">
+      <div class="hc">
+        <div class="hc-n">1</div>
+        <div class="hc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h4>Check the Packaging</h4>
+        <p>Read the label, check the expiration date, and ensure the can seal is intact before consuming.</p>
+      </div>
+
+      <div class="hc">
+        <div class="hc-n">2</div>
+        <div class="hc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/>
+            <line x1="10" y1="1" x2="10" y2="4"/>
+            <line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
+        <h4>Drink Directly</h4>
+        <p>Bear Brand is sterilized and ready-to-drink. You can consume it directly from the can anytime.</p>
+      </div>
+
+      <div class="hc">
+        <div class="hc-n">3</div>
+        <div class="hc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
+          </svg>
+        </div>
+        <h4>Serve Cold</h4>
+        <p>Chill in the refrigerator for a more refreshing taste. Perfect for daily consumption and busy routines.</p>
+      </div>
+
+      <div class="hc">
+        <div class="hc-n">4</div>
+        <div class="hc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/>
+            <line x1="10" y1="1" x2="10" y2="4"/>
+            <line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
+        <h4>Serve Warm (Correctly)</h4>
+        <p>Pour into a glass or mug before heating. <strong>Do not heat the can directly.</strong> Avoid boiling to preserve nutrients.</p>
+      </div>
+
+      <div class="hc">
+        <div class="hc-n">5</div>
+        <div class="hc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 2.343l18 18"/>
+            <path d="M3 18a6 6 0 0 1 6-6h.5M21 18a6 6 0 0 0-8-5.66"/>
+            <circle cx="10" cy="8" r="3"/>
+          </svg>
+        </div>
+        <h4>No Additives Needed</h4>
+        <p>Bear Brand is designed to be consumed directly without additional ingredients or mixing for daily nutrition.</p>
+      </div>
+
+      <div class="hc">
+        <div class="hc-n">6</div>
+        <div class="hc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="21 8 21 21 3 21 3 8"/>
+            <rect x="1" y="3" width="22" height="5"/>
+            <line x1="10" y1="12" x2="14" y2="12"/>
+          </svg>
+        </div>
+        <h4>Storage Rules</h4>
+        <p>
+          Unopened: store at room temperature in a cool, dry place away from sunlight. Opened: transfer to a sealed container, refrigerate at 4–7°C, and consume within <strong>3–5 days</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div class="tip rv rd2">
+      <div class="tip-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <p>
+        <strong>Daily Recommendation:</strong> One can per day is recommended for practical nutrition support. Do not consume dented, damaged, or expired cans to ensure safety.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="cta-sec">
+  <div class="cta-cans">
+    <div class="cta-can-row">
+      <img class="cta-can-img" src="bearbrandtea-removebg-preview.png" alt="Bear Brand Gold White Tea">
+      <img class="cta-can-img main" src="Bearbrandputih.png" alt="Bear Brand Original">
+      <img class="cta-can-img" src="bearbrandgold-removebg-preview.png" alt="Bear Brand Gold White Malt">
+    </div>
+  </div>
+
+  <h2>Ready to Experience the Quality of Bear Brand?</h2>
+  <p>
+    Available at Indomaret, Alfamart, and convenience stores across Indonesia — starting from just Rp 3,000. A smart nutritional choice for students and Indonesia’s young generation.
+  </p>
+
+  <div class="cta-btns">
+    <a href="https://www.nestle.co.id" target="_blank" class="cta-w">
+      Visit Nestlé Indonesia
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <polyline points="15 3 21 3 21 9"/>
+        <line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>
+    </a>
+
+    <a href="#home" class="cta-o">
+      Back to Top
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+
+
+<!-- REFERENCES -->
+<section class="refs-sec" id="references">
+  <div class="refs-inner">
+    <h3>References</h3>
+    <ul class="ref-list">
+      <li>Nestlé Indonesia Official Website — <a href="https://www.nestle.co.id" target="_blank">www.nestle.co.id</a></li>
+      <li>Nestlé Bear Brand Global Product Page — <a href="https://www.nestle.com/brands/allbrands/bearbrand" target="_blank">www.nestle.com/brands/allbrands/bearbrand</a></li>
+      <li>BPOM RI — Badan Pengawas Obat dan Makanan — <a href="https://www.pom.go.id" target="_blank">www.pom.go.id</a></li>
+      <li>Halal MUI Certification — Majelis Ulama Indonesia — <a href="https://www.halalmui.org" target="_blank">www.halalmui.org</a></li>
+      <li>Nestlé Nutritional Compass — Official product label nutritional fact sheets</li>
+      <li>Food and Agriculture Organization (FAO) — Dairy Protein &amp; Nutritional Standards</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2C9 2 6 4 6 7c0 2 1 3.5 3 4.5V13l-2 2v2h10v-2l-2-2v-1.5c2-1 3-2.5 3-4.5 0-3-3-5-6-5z"/><path d="M9 17v4h6v-4"/></svg>
+    Bear Brand &mdash; Product Presentation
+  </div>
+  <div class="footer-divider"></div>
+  <p>General English Midterm Exam &middot; 5W+1H &middot; Bear Brand&reg; is a registered trademark owned by Nestlé.&eacute; S.A. &middot; For academic purposes only.</p>
+</footer>
+
+<script>
+/* CURSOR */
+const cr=document.getElementById("cr"),crr=document.getElementById("crr");
+let mx=-200,my=-200,rx=-200,ry=-200;
+document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY});
+(function t(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cr.style.left=mx+"px";cr.style.top=my+"px";crr.style.left=rx+"px";crr.style.top=ry+"px";requestAnimationFrame(t)})();
+document.querySelectorAll("a,button,.wc,.wyc,.fc,.hc,.wrc,.tli,.sr").forEach(el=>{
+  el.addEventListener("mouseenter",()=>document.body.classList.add("h"));
+  el.addEventListener("mouseleave",()=>document.body.classList.remove("h"));
+});
+
+/* NAV */
+document.getElementById("ham").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("open"));
+window.addEventListener("scroll",()=>{
+  document.getElementById("nav").classList.toggle("scrolled",scrollY>30);
+  const ids=["home","who","what","where","when","why","how","funfacts","gallery"];
+  let cur="";
+  ids.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<130)cur=id;});
+  document.querySelectorAll(".nav-links a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));
+});
+
+/* REVEAL */
+const ro=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in")}),{threshold:.08});
+document.querySelectorAll(".rv").forEach(el=>ro.observe(el));
+
+/* NUTRITION BARS */
+const no=new IntersectionObserver(e=>{
+  e.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll(".nf").forEach(b=>b.style.width=b.getAttribute("data-w")+"%");
+      no.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+const nc=document.querySelector(".nc");
+if(nc)no.observe(nc);
+</script>
+</body>
+</html>
